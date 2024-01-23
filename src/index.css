@@ -1,0 +1,8 @@
+.three-dots-icon{
+    width: 30px;
+    height: 30px;
+}
+.three-dots-icon>img{
+    height: 100%;
+    width: 100%;
+}
