@@ -19,7 +19,6 @@ function App() {
   // console.log("fi", filter);
   const [color, setColor] = useState({
     Red: false,
-    Green: false,
     Yellow: false,
     Blue: false,
     Silver: false,
@@ -131,7 +130,6 @@ function App() {
     setFilteredUsers(() => users);
     setColor({
       Red: false,
-        Green: false,
         Yellow: false,
         Blue: false,
         Silver: false,
@@ -162,7 +160,6 @@ function App() {
     if (selectedColor === "Any") {
       setColor({
         Red: false,
-        Green: false,
         Yellow: false,
         Blue: false,
         Silver: false,
