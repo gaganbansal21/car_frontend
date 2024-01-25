@@ -5,7 +5,26 @@ const imageUrl = "https://images.unsplash.com/photo-1574169208507-84376144848b?q
 
 
 const CardContent = ({ user, index }) => {
+  const formatNumber = (num) => {
+    try {
+      let amount = Number(num);
+      if (!amount || amount === 0) return "0";
+   
+      const options = {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      };
+   
+      const roundedAmount = amount.toLocaleString("en-IN", options);
+      return roundedAmount;
+   
+    } catch (err) {
+      return "-";
+    }
+  }
+
   return (
+    // <div className='position'>
     <div class="card">
       <div className='img-wrapper'>
            <img src={user.CarImage} alt="Card Image" class="card-image" />
@@ -15,11 +34,11 @@ const CardContent = ({ user, index }) => {
         <h2 class="card-title">{user.CarMake} {user.CarModel}</h2>
         <p class="card-text">Manufacturing Year : {user.CarYear}</p>
         <p class="card-text">CarColor : {user.CarColor}</p>
-        <p class="card-text">CarPrice : ${user.CarPrice} </p>
+        <p class="card-text">CarPrice : ${formatNumber(user.CarPrice)} </p>
         <p class="card-text">CarMilage : {user.CarMileage}</p>
       </div>
     </div>
-
+    // </div>
   );
 };
 

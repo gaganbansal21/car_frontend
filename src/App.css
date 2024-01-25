@@ -2,25 +2,33 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   overflow-x: hidden;
+  /* overflow: hidden; */
 }
 
 nav{
   display: flex;
   justify-content: space-between;
-  background-color: rgb(126, 141, 226);
+  background-color: rgba(255, 255, 255, 0.373);
+  align-items: center;
   padding: 10px;
-  color:white;
+  color:rgb(18, 3, 3);
   font-weight: 600;
   font-size: 17px;
   position: sticky;
   top: 0;
-  width: 100%;
-  align-items: center;
+  width: 100%; 
+  opacity: 1;
+  z-index: 1;
+  box-sizing: border-box;
+  border-bottom:1px solid #040e20;
 }
 
 nav > p {
-  font-weight: 30px;
-  margin-left: 100px;
+  font-weight: 900;
+  /* font */
+  height: 22px;
+  margin : 0;
+  left: 2%;
 }
 
 .seach_box{
@@ -42,18 +50,24 @@ nav > p {
   flex-direction: row;
   justify-content: flex-start;
   gap: 20px;
-  margin:auto;
+  margin: auto;
   width: 100%;
   /* height: 100%; */
-  /* margin-top:40px; */
+  /* margin-top: 40px; */
+  overflow: hidden;
 }
 
+
+
 .filter_container {
-  border-right: 1px solid black;
-  padding: 15px;
-  /* height: 100vh; */
-  width: 17vw;
-  /* border-radius: 8px; */
+  position: static;
+  border-right: 1px solid rgb(50, 42, 42);
+  padding: 20px;
+  width: 70%;
+  height: 100%;
+  min-width: 170px;
+  background-color: #040e20;
+  color: white;
 }
 
 .filter_options {
@@ -65,8 +79,19 @@ nav > p {
   grid-template-columns: repeat(3,1fr);
   gap: 20px;
   margin: auto;
+  overflow : hidden;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  height: 100vh;
+  overflow-y: scroll;
+  width: 82%;
+  padding: 20px;
+  /* overflow: hidden; */
 }
-
+.check_box_filter_color{
+  display: flex;
+  align-items: center;
+}
 .container-card {
   display: flex;
   flex-wrap: wrap;
@@ -96,8 +121,17 @@ nav > p {
   display: none;
 }
 
+.reset_btn{
+  background-color: #e9e9ea;
+  color: rgb(15, 13, 13);
+}
 
-@media all and (min-width: 360px) and (max-width: 779px) {
+.reset_btn:hover{
+  background-color: rgb(81, 83, 84);
+  color: #ebeef4;
+}
+
+@media all and (min-width: 0) and (max-width: 780px) {
   .content-container{
     grid-template-columns: repeat(1,1fr);
   }
@@ -120,22 +154,36 @@ nav > p {
 @media all and (min-width: 780px) and (max-width: 1025px) {
   .content-container{
     grid-template-columns: repeat(2,1fr);
+    /* width: 80%; */
+    /* margin: auto; */
   }
   .main-container{
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
   }
+
   .seach_box{
     display: none
   }
   
-.filter_container {
+  .filter_container {
     border-right:none;
     border-bottom: 1px solid black;
-    width: auto;
+    width: 40%;
     margin: auto;
   }
   .three-dots-icon{
     display: block;
   }
   
+}
+
+
+
+@media all and (min-width: 1026px) and (max-width: 1250px) {
+  .content-container{
+    grid-template-columns: repeat(2,1fr);
+    /* width: 80%; */
+    /* margin: auto; */
+  }
 }
