@@ -23,6 +23,9 @@ function App() {
     Yellow: false,
     Blue: false,
     Silver: false,
+    Black:false,
+    White:false,
+    Gray:false,
     Any: true
   })
   const [search, setSearch] = useState('');
@@ -128,11 +131,14 @@ function App() {
     setFilteredUsers(() => users);
     setColor({
       Red: false,
-      Green: false,
-      Yellow: false,
-      Blue: false,
-      Silver: false,
-      Any: true
+        Green: false,
+        Yellow: false,
+        Blue: false,
+        Silver: false,
+        Black:false,
+        White:false,
+        Gray:false,
+        Any: true
     })
     setFilter({ ...filter, price: [10000, 300000], color: [], mileage: [1, 60] });
     setPriceRange([10000, 300000]);
