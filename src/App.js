@@ -59,8 +59,8 @@ function App() {
     }
   }
 
-  // const API_ENDPOINT = 'https://blue-violet-bandicoot-hat.cyclic.app/api/cars';
-  const API_ENDPOINT = 'http://localhost:5000/api/cars';
+  const API_ENDPOINT = 'https://blue-violet-bandicoot-hat.cyclic.app/api/cars';
+  // const API_ENDPOINT = 'http://localhost:5000/api/cars';
 
   const handleSearchBox = () => {
     console.log(showSearch);
