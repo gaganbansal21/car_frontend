@@ -320,7 +320,7 @@ function App() {
           <div className="content-container">
             {filteredUsers.length > 0? filteredUsers.map((user, index) => (
               <CardContent key={index} user={user} index={index} />
-            )):<p>{loading&&filteredUsers.length===0?"Loading":"No Cars Found"}</p>}
+            )):<p>{loading&&filteredUsers.length===0?"Loading":""}</p>}
            
           </div>
         </div>
