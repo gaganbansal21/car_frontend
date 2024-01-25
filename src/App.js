@@ -166,6 +166,9 @@ function App() {
         Yellow: false,
         Blue: false,
         Silver: false,
+        Black:false,
+        White:false,
+        Gray:false,
         Any: true
       })
       return;
