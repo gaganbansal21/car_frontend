@@ -136,6 +136,7 @@ nav > p {
 .serach_box_btn{
   background-color:white;
   color: #040e20;
+  border: 1px solid #040e20;
 }
 
 .serach_box_btn:hover{
