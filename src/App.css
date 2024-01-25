@@ -8,7 +8,7 @@ body {
 nav{
   display: flex;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.373);
+  background-color:white;
   align-items: center;
   padding: 10px;
   color:rgb(18, 3, 3);
@@ -68,6 +68,7 @@ nav > p {
   min-width: 170px;
   background-color: #040e20;
   color: white;
+
 }
 
 .filter_options {
@@ -84,8 +85,9 @@ nav > p {
   padding-bottom: 20px;
   height: 100vh;
   overflow-y: scroll;
-  width: 82%;
+  /* width: 82%; */
   padding: 20px;
+
   /* overflow: hidden; */
 }
 .check_box_filter_color{
@@ -143,7 +145,7 @@ nav > p {
   }
   .filter_container {
     border: none;
-    width: 33%;
+    width: 83%;
     margin: auto;
   }
   .three-dots-icon{
@@ -170,7 +172,7 @@ nav > p {
     border-right:none;
     border-bottom: 1px solid black;
     width: 40%;
-    margin: auto;
+    /* margin: auto; */
   }
   .three-dots-icon{
     display: block;

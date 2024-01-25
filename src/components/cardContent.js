@@ -33,9 +33,9 @@ const CardContent = ({ user, index }) => {
       <div class="card-content">
         <h2 class="card-title">{user.CarMake} {user.CarModel}</h2>
         <p class="card-text">Manufacturing Year : {user.CarYear}</p>
-        <p class="card-text">CarColor : {user.CarColor}</p>
-        <p class="card-text">CarPrice : ${formatNumber(user.CarPrice)} </p>
-        <p class="card-text">CarMilage : {user.CarMileage}</p>
+        <p class="card-text">{user.CarColor}</p>
+        <h3 class="card-text">${formatNumber(user.CarPrice)} </h3>
+        <p class="card-text">{user.CarMileage}MPG</p>
       </div>
     </div>
     // </div>

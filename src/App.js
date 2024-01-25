@@ -16,7 +16,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [filter, setFilter] = useState({ price: [10000, 300000], color: [], mileage: [1, 60] });
-  console.log("fi", filter);
+  // console.log("fi", filter);
   const [color, setColor] = useState({
     Red: false,
     Green: false,
@@ -33,6 +33,7 @@ function App() {
   // const [initialRender, setInitialRender] = useState(false);
   // const [mileageRange, setmileageRange] = useState([1, 60]);
   const [initialMileageRange, setInitialMileageRange] = useState([1, 60]);
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     setInitialMileageRange([1, 60]);
@@ -59,8 +60,8 @@ function App() {
     }
   }
 
-  const API_ENDPOINT = 'https://blue-violet-bandicoot-hat.cyclic.app/api/cars';
-  // const API_ENDPOINT = 'http://localhost:5000/api/cars';
+  // const API_ENDPOINT = 'https://blue-violet-bandicoot-hat.cyclic.app/api/cars';
+  const API_ENDPOINT = 'http://localhost:5000/api/cars';
 
   const handleSearchBox = () => {
     console.log(showSearch);
@@ -75,6 +76,7 @@ function App() {
 
   const fetchData = async () => {
     try {
+      setLoading(true)
       const { price, color, mileage } = filter;
       const response = await axios.get(API_ENDPOINT, {
         params: {
@@ -90,7 +92,11 @@ function App() {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+    finally{
+      setLoading(false);
+    }
   };
+
 
 
   // useEffect(() => {
@@ -99,11 +105,15 @@ function App() {
 
   const fetchSearchData = async () => {
     try {
+      setLoading(true)
       const response = await axios.get(`${API_ENDPOINT}/search/?search=${search}`);
       const data = await response.data;
       setFilteredUsers(data);
     } catch (error) {
       console.error('Error fetching data:', error);
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -198,7 +208,9 @@ function App() {
     // console.log("filter", filter)
   }, [color]);
 
-
+ 
+  
+  
 
   return (
     <>
@@ -247,8 +259,7 @@ function App() {
                 <label htmlFor="price" className="mileage_label_filter">Price : </label>
                 <Box sx={{ width: '70%', justifyContent: 'center' }}>
                   <Slider
-                    track={true}
-                    defaultValue={[10000, 300000]}
+                    value={filter.price}
                     getAriaLabel={() => 'Amount'}
                     min={10000}
                     max={300000}
@@ -285,8 +296,9 @@ function App() {
                 </label>
                 <Box sx={{ width: '70%', justifyContent: 'center' }}>
                   <Slider
-                    track={true}
-                    defaultValue={[mileageRange[0], mileageRange[1]]}
+                    // track={true}
+                    // defaultValue={[mileageRange[0], mileageRange[1]]}
+                    value={filter.mileage}
                     min={1}
                     max={60}
                     valueLabelDisplay="auto"
@@ -306,12 +318,10 @@ function App() {
           </div>
 
           <div className="content-container">
-            {filteredUsers.length > 0 && filteredUsers.map((user, index) => (
+            {filteredUsers.length > 0? filteredUsers.map((user, index) => (
               <CardContent key={index} user={user} index={index} />
-            ))}
-            {filteredUsers.length === 0 && (
-              <p className="no-results-message text-center">No cars found</p>
-            )}
+            )):<p>{loading&&filteredUsers.length===0?"Loading":"No Cars Found"}</p>}
+           
           </div>
         </div>
       </div>
